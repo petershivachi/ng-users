@@ -9,7 +9,8 @@ import User from '../../models/User';
 export class UsersComponent implements OnInit {
   users: User[];
   showExtended: boolean = true;
-  loaded: boolean = false
+  loaded: boolean = false;
+  enableAddUser: boolean = false;
 
   constructor() { }
 
@@ -23,7 +24,8 @@ export class UsersComponent implements OnInit {
           street: '55 Main Street',
           city: 'Nairobi',
           estate: 'South C'
-        }
+        },
+        image: 'http://lorempixel.com/200/200/people/1'
       },
       {
         firstName: 'Jill',
@@ -33,7 +35,8 @@ export class UsersComponent implements OnInit {
           street: '55 Ladhies Road',
           city: 'Nairobi',
           estate: 'Makadara'
-        }
+        },
+        image: 'http://lorempixel.com/200/200/people/2'
       },
       {
         firstName: 'Jack',
@@ -43,7 +46,8 @@ export class UsersComponent implements OnInit {
           street: '48 Ring Road',
           city: 'Nairobi',
           estate: 'South B'
-        }
+        },
+        image: 'http://lorempixel.com/200/200/people/3'
       },
       {
         firstName: 'Steve',
@@ -53,7 +57,8 @@ export class UsersComponent implements OnInit {
           street: '55 Enterprise Road',
           city: 'Nairobi',
           estate: 'Industrial Area'
-        }
+        },
+        image: 'http://lorempixel.com/200/200/people/4'
       },
       {
         firstName: 'Mark',
@@ -63,7 +68,8 @@ export class UsersComponent implements OnInit {
           street: '18 Main Street',
           city: 'Nairobi',
           estate: 'Umoja'
-        }
+        },
+        image: 'http://lorempixel.com/200/200/people/5'
       }
     ]
 

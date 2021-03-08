@@ -1,12 +1,14 @@
 <h2 class="text-center">Users</h2>
-<button [disabled]="!enableAddUser" class="btn btn-light btn-block mb-3">Add New User</button>
+<button [disabled]="!enableAddUser" class="btn btn-light btn-block mb-3" [ngClass]="currentClassses">
+Add New User
+</button>
 <ul class="list-unstyled">
-  <li class="card card-body mb-2" *ngFor="let user of users">
+  <li class="card card-body mb-2" [class.bg-light]="user.isActive" *ngFor="let user of users">
     <div class="row">
       <div class="col-sm-4">
         <!-- <img *ngIf="user.image" class="img-fluid" [src]="user.image" alt=""> -->
         <!-- <img  *ngIf="user.image" src="{{user.image}}" alt=""> -->
-        <img  *ngIf="user.image" bind-src="user.image" alt="">
+        <img  *ngIf="user.image" class="img-fluid" bind-src="user.image" alt="">
       </div>
       <div class="col-sm-8">
         <h3>

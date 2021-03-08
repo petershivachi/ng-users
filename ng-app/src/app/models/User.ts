@@ -8,4 +8,5 @@ export default interface User {
     estate: string
   }
   image?: string
+  isActive: boolean
 }

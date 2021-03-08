@@ -6,7 +6,7 @@ export default interface User {
     street: string,
     city: string,
     estate: string
-  }
-  image?: string
-  isActive: boolean
+  },
+  isActive?: boolean,
+  registered?: any
 }

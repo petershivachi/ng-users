@@ -7,4 +7,5 @@ export default interface User {
     city: string,
     estate: string
   }
+  image?: string
 }

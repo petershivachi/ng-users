@@ -10,7 +10,8 @@ export class UsersComponent implements OnInit {
   users: User[];
   showExtended: boolean = true;
   loaded: boolean = false;
-  enableAddUser: boolean = false;
+  enableAddUser: boolean = true;
+  currentClassses = {}
 
   constructor() { }
 
@@ -25,7 +26,8 @@ export class UsersComponent implements OnInit {
           city: 'Nairobi',
           estate: 'South C'
         },
-        image: 'http://lorempixel.com/200/200/people/1'
+        image: 'http://lorempixel.com/400/400/people/1',
+        isActive: true
       },
       {
         firstName: 'Jill',
@@ -36,7 +38,8 @@ export class UsersComponent implements OnInit {
           city: 'Nairobi',
           estate: 'Makadara'
         },
-        image: 'http://lorempixel.com/200/200/people/2'
+        image: 'http://lorempixel.com/400/400/people/2',
+        isActive: false
       },
       {
         firstName: 'Jack',
@@ -47,7 +50,8 @@ export class UsersComponent implements OnInit {
           city: 'Nairobi',
           estate: 'South B'
         },
-        image: 'http://lorempixel.com/200/200/people/3'
+        image: 'http://lorempixel.com/400/400/people/3',
+        isActive: true
       },
       {
         firstName: 'Steve',
@@ -58,7 +62,8 @@ export class UsersComponent implements OnInit {
           city: 'Nairobi',
           estate: 'Industrial Area'
         },
-        image: 'http://lorempixel.com/200/200/people/4'
+        image: 'http://lorempixel.com/400/400/people/4',
+        isActive: false
       },
       {
         firstName: 'Mark',
@@ -69,12 +74,22 @@ export class UsersComponent implements OnInit {
           city: 'Nairobi',
           estate: 'Umoja'
         },
-        image: 'http://lorempixel.com/200/200/people/5'
+        image: 'http://lorempixel.com/400/400/people/5',
+        isActive: true
       }
     ]
 
     this.loaded = true;
     this.showExtended= true;
+
+    this.setCurrentClass()
+  }
+
+  setCurrentClass(){
+    this.currentClassses = {
+      'btn-success': this.enableAddUser,
+      'big-text': this.showExtended
+    }
   }
 
 }

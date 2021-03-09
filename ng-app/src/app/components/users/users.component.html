@@ -1,5 +1,7 @@
 <h2 class="text-center">Users</h2>
-<button [disabled]="!enableAddUser" class="btn btn-light btn-block mb-3">
+<button [disabled]="!enableAddUser" 
+class="btn btn-light btn-block mb-3"
+(click)="addUser({firstName : 'Bradley', lastName: 'Johnsons', isActive: true})">
 Add New User
 </button>
 <ul class="list-unstyled">
@@ -9,8 +11,14 @@ Add New User
         <h3>
           {{user.firstName | uppercase}}
           {{user.lastName | lowercase}}
+          <small *ngIf="user.age && user.address && user.registered">
+            <button class="btn btn-primary btn-sm" 
+            (click)=" user.hide = !user.hide;">
+            <i [ngClass]="user.hide ? 'fa fa-plus' : 'fa fa-minus'"></i>
+          </button>
+          </small>
         </h3>
-        <ul class="list-group" *ngIf="showExtended">
+        <ul class="list-group" *ngIf="!user.hide && user.age && user.address && user.registered">
           <li class="list-group-item"> 
             Age: 
             {{user.age}} </li>

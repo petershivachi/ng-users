@@ -28,7 +28,8 @@ export class UsersComponent implements OnInit {
           estate: 'South C'
         },
         isActive: true,
-        registered: new Date('01/03/2021 7:30:00')
+        registered: new Date('01/03/2021 7:30:00'),
+        hide: true
       },
       {
         firstName: 'Jill',
@@ -40,7 +41,8 @@ export class UsersComponent implements OnInit {
           estate: 'Makadara'
         },
         isActive: false,
-        registered: new Date('02/03/2021 8:30:00')
+        registered: new Date('02/03/2021 8:30:00'),
+        hide: true
       },
       {
         firstName: 'Jack',
@@ -52,7 +54,8 @@ export class UsersComponent implements OnInit {
           estate: 'South B'
         },
         isActive: true,
-        registered: new Date('03/03/2021 9:30:00')
+        registered: new Date('03/03/2021 9:30:00'),
+        hide: true
       },
       {
         firstName: 'Steve',
@@ -64,7 +67,8 @@ export class UsersComponent implements OnInit {
           estate: 'Industrial Area'
         },
         isActive: false,
-        registered: new Date('04/03/2021 10:30:00')
+        registered: new Date('04/03/2021 10:30:00'),
+        hide: true
       },
       {
         firstName: 'Mark',
@@ -76,29 +80,21 @@ export class UsersComponent implements OnInit {
           estate: 'Umoja'
         },
         isActive: true,
-        registered: new Date('05/03/2021 12:30:00')
+        registered: new Date('05/03/2021 12:30:00'),
+        hide: true
       }
     ]
 
     this.loaded = true;
     this.showExtended= true;
-
-    this.setCurrentClass();
-    this.setCurentStyles();
   }
 
-  setCurrentClass(){
-    this.currentClassses = {
-      'btn-success': this.enableAddUser,
-      'big-text': this.showExtended
-    }
+  addUser(user: User){
+    this.users.push(user)
   }
 
-  setCurentStyles(){
-    this.currentStyles = {
-      'padding-top': this.showExtended ? '0': '40px',
-      'font-size': this.showExtended ? '': '40px'
-    }
-  }
+  // toggleUser(user: User){
+  //   user.hide = !user.hide;
+  // }
 
 }

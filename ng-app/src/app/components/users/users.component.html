@@ -4,46 +4,56 @@
   <form (submit)="onSubmit($event)">
     <div class="form-group">
       <label>FirstName</label>
-      <input (copy)="fireEvent($event)" class="form-control" type="text">
+      <input [(ngModel)]="user.firstName"
+      name="firstName" 
+      class="form-control" type="text">
     </div>
     <div class="form-group">
       <label>LastName</label>
-      <input class="form-control" type="text">
+      <input class="form-control"
+      [(ngModel)]="user.lastName" 
+      type="text" name="lastName">
     </div>
     <div class="form-group">
       <label>Age</label>
-      <input class="form-control" type="number">
+      <input class="form-control"
+      [(ngModel)]="user.age"
+       type="number" name="age">
     </div>
     <div class="form-group">
       <label>Street</label>
-      <input class="form-control" type="text">
+      <input class="form-control"
+      [(ngModel)]="user.address.street"
+       type="text" name="street">
     </div>
     <div class="form-group">
       <label>City</label>
-      <input class="form-control" type="text">
+      <input class="form-control"
+      [(ngModel)]="user.address.city" 
+      type="text" name="city">
     </div>
     <div class="form-group">
       <label>Estate</label>
-      <input class="form-control" type="text">
+      <input class="form-control"
+      [(ngModel)]="user.address.estate"
+       type="text" name="estate">
     </div>
-    <div class="form-group">
-      <label>Registered</label>
-      <input class="form-control" type="date">
-    </div>
-    <button [disabled]="!enableAddUser" 
-    class="btn btn-light btn-block mb-3"
-    (click)="addUser({firstName : 'Bradley', lastName: 'Johnsons', isActive: true})">
+    <button 
+    (click)="addUser()"
+    [disabled]="user.firstName == '' || user.lastName == ''" 
+    class="btn btn-light btn-block mb-3">
     Add New User
     </button>
   </form>
 </div>
-<ul class="list-unstyled">
+<ul class="list-unstyled"
+*ngIf="loaded && users?.length > 0">
   <li class="card card-body mb-2" 
   [class.bg-light]="user.isActive"
   *ngFor="let user of users">
         <h3>
-          {{user.firstName | uppercase}}
-          {{user.lastName | lowercase}}
+          {{user.firstName }}
+          {{user.lastName }}
           <small *ngIf="user.age && user.address && user.registered">
             <button class="btn btn-primary btn-sm" 
             (click)=" user.hide = !user.hide;">
@@ -67,3 +77,11 @@
         </ul>
   </li>
 </ul>
+
+
+<h4 *ngIf="users?.length == 0">
+  No Users Found
+</h4>
+<h4 *ngIf="!loaded">
+  Loading Users...
+</h4>

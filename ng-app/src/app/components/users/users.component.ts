@@ -7,6 +7,17 @@ import User from '../../models/User';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  user: User = {
+    firstName: '',
+    lastName: '',
+    age: null,
+    address: {
+      street: '',
+      city: '',
+      estate: ''
+    },
+    registered: ''
+  }
   users: User[];
   showExtended: boolean = false;
   loaded: boolean = false;
@@ -85,11 +96,25 @@ export class UsersComponent implements OnInit {
     ]
 
     this.loaded = true;
-    this.showExtended= true;
+
   }
 
-  addUser(user: User){
-    this.users.push(user)
+  addUser(){
+    this.user.isActive = true;
+
+    this.user.registered = Date.now();
+    this.users.unshift(this.user);
+
+    this.user = {
+      firstName: '',
+      lastName: '',
+      age: null,
+      address: {
+        street: '',
+        city: '',
+        estate: ''
+      }
+    }
   }
 
   // toggleUser(user: User){

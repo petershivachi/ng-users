@@ -19,32 +19,23 @@ export class UsersComponent implements OnInit {
   enableAddUser: boolean = false;
   showUserForm: boolean = false;
   @ViewChild('userForm') form: any;
+  data:any;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.users = this.userService.getUsers();
+
+    this.userService.getData().subscribe(data => {
+      console.log(data)
+    })
+     
+   this.userService.getUsers().subscribe(users =>{
+     this.users = users
+   })
 
     this.loaded = true;
 
   }
-
-  // addUser(){
-  //   this.user.isActive = true;
-
-  //   this.user.registered = Date.now();
-  //   this.users.unshift(this.user);
-
-  //   this.user = {
-  //     firstName: '',
-  //     lastName: '',
-  //     email: '',
-  //   }
-  // }
-
-  // toggleUser(user: User){
-  //   user.hide = !user.hide;
-  // }
 
   onSubmit({ value, valid }: 
     { value:User, valid: boolean}){

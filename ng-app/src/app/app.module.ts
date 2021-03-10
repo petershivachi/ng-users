@@ -8,7 +8,8 @@ import { UsersComponent } from './components/users/users.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserService } from './services/user.service';
 import { PostsComponent } from './components/posts/posts.component';
-import { PostsService } from './services/posts.service'
+import { PostsService } from './services/posts.service';
+import { PostFormComponent } from './components/post-form/post-form.component'
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { PostsService } from './services/posts.service'
     UsersComponent,
     NavbarComponent,
     PostsComponent,
+    PostFormComponent,
   ],
   imports: [
     BrowserModule,

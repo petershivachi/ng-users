@@ -9,6 +9,7 @@ import { PostsService } from '../../services/posts.service';
 })
 export class PostFormComponent implements OnInit {
   @Output() newPost: EventEmitter<Post> = new EventEmitter();
+  @Output() updatedPost: EventEmitter<Post> = new EventEmitter();
   @Input() currentPost: Post;
   @Input() isEdit;
 
@@ -28,7 +29,11 @@ export class PostFormComponent implements OnInit {
   }
 
   updatePost(){
-    console.log(123)
+    this.postsService.updatePost(this.currentPost).subscribe(post =>{
+      console.log(post);
+      this.isEdit = false;
+      this.updatedPost.emit(post);
+    });
   }
 
 }
